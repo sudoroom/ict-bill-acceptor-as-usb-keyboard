@@ -26,8 +26,8 @@ char out_str[8];
 
 void setup() {
   pinMode(INPIN, INPUT);
-//  Serial.begin(115200); // You can comment all the Keyboard lines and uncomment all the serial lines to make it print to serial instead (useful for debugging)
-  Keyboard.begin();
+  Serial.begin(115200); // You can comment all the Keyboard lines and uncomment all the serial lines to make it print to serial instead (useful for debugging)
+//  Keyboard.begin();
   pulse_begin = 0;
   last_state = 0;
   min_pulse_width = 40;
@@ -69,8 +69,8 @@ void loop() {
       snprintf(out_str, 8, "%d.%d\n", whole_dollars, remaining_cents);
     }
     
-    Keyboard.print(out_str); // Write the dollar amount
-    // Serial.print(out_str);    
+    // Keyboard.print(out_str); // Write the dollar amount
+    Serial.print(out_str);
     cents_received = 0; // reset cents_received so it's ready for next payment
 
     pulse_end = 0;
